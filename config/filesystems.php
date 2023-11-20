@@ -30,12 +30,6 @@ return [
 
     'disks' => [
 
-        'foto' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/foto'), // Sesuaikan dengan direktori penyimpanan foto Anda
-            'url' => env('APP_URL') . '/storage',
-        ],
-        
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -44,8 +38,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path(),
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],

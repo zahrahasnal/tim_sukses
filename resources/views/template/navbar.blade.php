@@ -15,7 +15,7 @@
                 </div>
                 <div class="image">
                     @if(Auth::user()->foto)
-                        <img src="{{ asset('public/storage/foto/' . Auth::user()->foto) }}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('foto_users/' . Auth::user()->foto) }}" class="img-circle elevation-2" alt="User Image">
                     @else
                         No Image
                     @endif

@@ -93,9 +93,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <div class="form-group">
-                <form action="{{ route('user.update-profile')}}" method="POST"></form>
-                @csrf
-
                 @method('PUT')
                 <label for="foto">Foto</label>
                 <input type="file" name="foto" class="form-control-file">

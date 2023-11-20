@@ -99,7 +99,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <td>{{ $user->jenis_kel }}</td>
                 <td>
                   @if ($user->foto)
-                      <img src="{{ asset('storage/foto/' . $user->foto) }}" alt="User Image" width="200">
+                   <img src="{{ asset('foto_users/' . $user->foto) }}" alt="User Image" width="50">
                   @else
                       No Image
                   @endif

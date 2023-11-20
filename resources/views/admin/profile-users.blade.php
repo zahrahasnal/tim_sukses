@@ -60,12 +60,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-4">
-                          @php
-                          $profileImage = Auth::user()->foto; // Mengambil path gambar dari data pengguna yang sudah login
-                          @endphp
-                          <img src="{{ asset('storage/' . $profileImage) }}" class="card-img-top" alt="Foto Profil">
-                          <h5 class="card-title"><strong>{{ Auth::user()->nama }}</strong></h5>
+                        <div class="col-md-4 mx-auto text-center">
+                            @php
+                            $profileImage = Auth::user()->foto; // Mengambil path gambar dari data pengguna yang sudah login
+                            @endphp
+                            <img src="{{ asset('foto_users/' . Auth::user()->foto) }}" class="card-img-top" alt="Foto Profil">
+                            <h5 class="card-title"><strong>{{ Auth::user()->nama }}</strong></h5>
                         </div>
                         <div class="col-md-8">
                             <div class="table-responsive">
@@ -97,9 +97,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <td>{{ Auth::user()->jenis_kel }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Password:</th>
-                                        <td>*****</td>
-                                    </tr>
+    <th>Password:</th>
+    <td>{{ $maskedPassword }}</td>
+</tr>
                                 </table>
                             </div>
                         </div>

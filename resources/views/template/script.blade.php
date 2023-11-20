@@ -23,13 +23,8 @@
     }
 </script>
 
-<!-- Password -->
-<script>
-    function togglePassword() {
-        var passwordInput = document.getElementById('password');
-        var eyeIcon = document.getElementById('eyeicon');
+<!-- Include the Google Charts library -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
-        eyeIcon.src = passwordInput.type === 'password' ? '{{ asset("img/eye-close.png") }}' : '{{ asset("img/eye-open.png") }}';
-    }
-</script>
+    <!-- Include the dashboard.js file -->
+    <script type="text/javascript" src="{{ asset('js/dashboard.js') }}"></script>

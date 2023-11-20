@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +57,4 @@ Route::get('search-users', [UserController::class, 'search'])->name('search-user
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
-Route::get('/pie-charts', 'PieChartController@index')->name('pie-charts');
-
-Route::get('/reset-password', function () {
-    return view('auth.reset-password');
-})->middleware('guest')->name('password.request');
+Route::get('/chart-data', [ApiController::class, 'getChartData']);

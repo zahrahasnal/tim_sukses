@@ -42,10 +42,9 @@
                     <label for="password">Password</label>
                     <div class="input-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                            <img src="{{ asset('img/eye-close.png') }}" id="eyeicon" alt="Eye Icon" onclick="togglePassword()">
                 </div>
                 <div class="form-group">
-                    <label for="forgotPassword">Lupa Password? <a href="reset-password">Klik di sini</a></label>
+                    <label for="forgotPassword">Lupa Password? <a href="#">Klik di sini</a></label>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-block">Login</button>

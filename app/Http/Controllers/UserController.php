@@ -27,7 +27,7 @@ class UserController extends Controller
         // Validasi input pengguna, seperti nama, email, password, dan lain-lain
         $request->validate([
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:users',
             'no_hp' => 'required',
             'alamat' => 'required',
             'jenis_kel' => 'required',
@@ -50,9 +50,16 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
 
         if ($request->hasFile('foto')) {
-            $path = $request->file('foto')->store('public/foto');
-            $user->foto = $path;
+            $file = $request->file('foto');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension(); // Mendapatkan ekstensi file
+
+            // Menyimpan file langsung di dalam direktori public/foto_users
+            $file->storeAs('foto_users', $filename, 'public');
+
+            $user->foto = $filename; // Menyimpan nama file ke dalam kolom foto
         }
+
+
 
         $user->level = $request->input('level');
         $user->posisi = $request->input('posisi');
@@ -65,6 +72,7 @@ class UserController extends Controller
         }
         // Redirect atau lakukan tindakan lain setelah menyimpan pengguna
     }
+
 
     public function update(Request $request, $id)
     {

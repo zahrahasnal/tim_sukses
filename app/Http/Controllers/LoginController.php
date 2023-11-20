@@ -17,31 +17,6 @@ class LoginController extends Controller
         return view('admin.index', compact('data'));
     }
 
-    public function index()
-    {
-        return view('login');
-    }
-
-    public function login(Request $request)
-    {
-        // Validasi input login
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        $user = User::where('email', $request->input('email'))->first();
-
-        if ($user && Hash::check($request->input('password'), $user->password)) {
-            // Kata sandi benar
-            Auth::login($user);
-            return redirect()->intended('/dashboard'); // Ganti '/dashboard' dengan rute halaman setelah login
-        } else {
-            // Kata sandi salah atau pengguna tidak ditemukan
-            return redirect()->route('showformlogin');
-        }
-    }
-
     public function logout()
     {
         Auth::logout();
