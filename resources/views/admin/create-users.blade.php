@@ -59,23 +59,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="card-body">
           <form action="{{ route('save-users') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
+            
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
+                <input type="text" name="nama" class="form-control" placeholder="Enter Name" value="{{ old('nama') }}">
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
             </div>
 
             <div class="form-group">
                 <label for="no_hp">No Handphone</label>
-                <input type="text" name="no_hp" class="form-control" value="{{ old('no_hp') }}">
+                <input type="text" name="no_hp" class="form-control" placeholder="" value="{{ old('no_hp') }}">
             </div>
 
             <div class="form-group">
-                <label for="jenis_kel">Jenis Kelamin</label>
+                <label for="jenis_kel">Gender</label>
                 <select name="jenis_kel" class="form-control">
                     <option value="Laki-laki" {{ old('jenis_kel') === 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                     <option value="Perempuan" {{ old('jenis_kel') === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
@@ -83,13 +93,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" name="foto" class="form-control-file">
+                <label for="foto">Image</label>
+                <input type="file" name="foto" class="form-control-file" placeholder="Choose an image">
             </div>
 
             <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <textarea name="alamat" class="form-control" value="{{ old('alamat') }}"></textarea>
+                <label for="alamat">Address</label>
+                <textarea name="alamat" class="form-control" placeholder="Add Address" value="{{ old('alamat') }}"></textarea>
             </div>
 
             <div class="form-group">
@@ -110,10 +120,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="form-group">
                 <label for="alamat">Password</label>
-                <input type="password" name="password" class="form-control" value="{{ old('password') }}"></input>
+                <input type="password" name="password" class="form-control" placeholder="Enter Password" value="{{ old('password') }}"></input>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add User</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </form>
         </div>
       </div>
@@ -140,6 +150,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('template.script')
-@include('sweetalert::alert')
 </body>
 </html>

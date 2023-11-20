@@ -60,6 +60,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <form action="{{ route('update-website', $website->id) }}" method="POST">
             @method('PUT')
             @csrf
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
             <div class="form-group">
               <label>Link Website</label>
               <input type="text" id="link" name="link" class="form-control" placeholder="Link Website" value="{{ $website->link ?? old('link') }}">

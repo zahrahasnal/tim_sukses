@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
@@ -58,3 +57,7 @@ Route::get('search-users', [UserController::class, 'search'])->name('search-user
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/pie-charts', 'PieChartController@index')->name('pie-charts');
+
+Route::get('/reset-password', function () {
+    return view('auth.reset-password');
+})->middleware('guest')->name('password.request');

@@ -49,17 +49,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </ol>
                   </div><!-- /.col -->
               </div><!-- /.row -->
-              @if(session()->has('success') || session()->has('error'))
-              <div class="row">
-                  <div class="col-12">
-                      @if(session()->has('success'))
-                          <div class="alert alert-success">{{ session('success') }}</div>
-                      @elseif(session()->has('error'))
-                          <div class="alert alert-danger">{{ session('error') }}</div>
-                      @endif
-                  </div>
-              </div>
-              @endif
           </div><!-- /.container-fluid -->
       </div>
     <!-- /.content-header -->
@@ -80,6 +69,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <form method="POST" action="{{ route('save-website') }}">
             @csrf
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
+            
             <div class="form-group">
               <label>Link Website</label>
               <input type="text" id="link" name="link" class="form-control" placeholder="Link Website"  value="{{ old('link') }}">

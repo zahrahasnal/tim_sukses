@@ -40,12 +40,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Add Users</h1>
+            <h1 class="m-0 text-dark">Edit Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('users') }}">Manage Users</a></li>
-              <li class="breadcrumb-item active">Add Users</li>
+              <li class="breadcrumb-item active">Edit Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -60,6 +60,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <form action="{{ route('update-users', ['id' => $users->id]) }}" method="POST">
             @method('PUT')
             @csrf
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
             <div class="form-group">
               <label for="nama">Nama</label>
               <input type="text" name="nama" class="form-control" value="{{ $users->nama ?? old('nama') }}">
@@ -84,6 +93,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <div class="form-group">
+                <form action="{{ route('user.update-profile')}}" method="POST"></form>
+                @csrf
+
+                @method('PUT')
                 <label for="foto">Foto</label>
                 <input type="file" name="foto" class="form-control-file">
                 <p class="text-danger">*Max:2mb, Fortmat:jpg,jpeg,png</p>
@@ -115,7 +128,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <input type="password" name="password" class="form-control" value="{{ $users->password ?? old('password') }}">
                 <p class="text-danger">*Kata sandi yang dimasukkan harus minimum 8 karakter dari kombinasi huruf kapital, huruf kecil, dan angka</p>
             </div>
-            <button type="submit" class="btn btn-primary">Add User</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
         </div>
       </div>
@@ -142,6 +155,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('template.script')
-@include('sweetalert::alert')
 </body>
 </html>

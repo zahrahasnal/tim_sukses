@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>View User Image</title>
@@ -10,4 +10,4 @@
         <p>No Image Available</p>
     @endif
 </body>
-</html>
+</html> --}}

@@ -11,12 +11,14 @@ use App\Models\Website;
 
 class LoginController extends Controller
 {
-    public function dashboard() {
+    public function dashboard()
+    {
         $data = Website::paginate(10);
         return view('admin.index', compact('data'));
     }
 
-    public function index() {
+    public function index()
+    {
         return view('login');
     }
 
@@ -33,7 +35,7 @@ class LoginController extends Controller
         if ($user && Hash::check($request->input('password'), $user->password)) {
             // Kata sandi benar
             Auth::login($user);
-            return redirect()->intended('/website'); // Ganti '/dashboard' dengan rute halaman setelah login
+            return redirect()->intended('/dashboard'); // Ganti '/dashboard' dengan rute halaman setelah login
         } else {
             // Kata sandi salah atau pengguna tidak ditemukan
             return redirect()->route('showformlogin');

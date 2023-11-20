@@ -11,8 +11,19 @@
             align-items: center;
             height: 100vh;
         }
-     .custom-container {
+        .custom-container {
             width: 450px;
+        }
+        .input-group {
+            position: relative;
+        }
+        .input-group img {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -25,14 +36,16 @@
                 @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <img src="{{ asset('img/eye-close.png') }}" id="eyeicon" alt="Eye Icon" onclick="togglePassword()">
                 </div>
                 <div class="form-group">
-                    <label for="forgotPassword">Lupa Password? <a href="#">Klik di sini</a></label>
+                    <label for="forgotPassword">Lupa Password? <a href="reset-password">Klik di sini</a></label>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-block">Login</button>

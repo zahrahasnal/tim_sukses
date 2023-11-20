@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
             <div class="col-md-6 text-right">
-              <a href="{{ route('create-website') }}" class="btn btn-success">Add <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('create-users') }}" class="btn btn-success">Add <i class="fas fa-plus-square"></i></a>
               <a href="{{ route('download.all') }}" class="btn btn-success">Download <i class="fas fa-download"></i></a>
             </div>
           </div>
@@ -99,7 +99,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <td>{{ $user->jenis_kel }}</td>
                 <td>
                   @if ($user->foto)
-                      <img src="{{ asset('storage/app/public/foto/' . $user->foto) }}" alt="User Image" width="200">
+                      <img src="{{ asset('storage/foto/' . $user->foto) }}" alt="User Image" width="200">
                   @else
                       No Image
                   @endif
@@ -108,7 +108,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <td>{{ $user->posisi }}</td>
               <td>
                 <a href="{{ route('edit-users', $user->id)}}" class="edit-icon"><i class="fas fa-edit"></i></a>
-                  <a href="{{ route('delete-users', $user->id)}}" class="edit-icon"><i class="fas fa-trash text-danger"></i></a>
+                <a href="#" class="edit-icon" onclick="confirmDelete({{ $user->id }})">
+                    <i class="fas fa-trash text-danger"></i>
+                </a>
               </td>
             </tr>
             @endforeach

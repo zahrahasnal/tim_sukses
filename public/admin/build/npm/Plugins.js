@@ -333,14 +333,14 @@ const Plugins = [
     to  : 'plugins/sparklines'
   },
   // SweetAlert2
-  {
-    from: 'node_modules/sweetalert2/dist/',
-    to  : 'plugins/sweetalert2'
-  },
-  {
-    from: 'node_modules/@sweetalert2/theme-bootstrap-4/',
-    to  : 'plugins/sweetalert2-theme-bootstrap-4'
-  },
+  // {
+  //   from: 'node_modules/sweetalert2/dist/',
+  //   to  : 'plugins/sweetalert2'
+  // },
+  // {
+  //   from: 'node_modules/@sweetalert2/theme-bootstrap-4/',
+  //   to  : 'plugins/sweetalert2-theme-bootstrap-4'
+  // },
   // Toastr
   {
     from: 'node_modules/toastr/build/',
