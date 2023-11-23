@@ -183,11 +183,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
               </div>
 
-
             <div class="form-group">
                 <label for="ket_error">Deskripsi Error</label>
                 <input type="text" id="ket_error" name="ket_error" class="form-control" placeholder="Deskripsi Error" value="{{ old('link') }}">
             </div>
+
+            <input type="hidden" name="submitted" value="{{ auth()->user()->nama }}">
+
             <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
@@ -215,6 +217,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('template.script')
-@include('sweetalert::alert')
 </body>
 </html>

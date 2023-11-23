@@ -25,6 +25,10 @@ class WebsiteController extends Controller
         return view('admin.create-website');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function store(Request $request)
     {
@@ -41,6 +45,8 @@ class WebsiteController extends Controller
             'cms' => 'required',
             'keamanan' => 'required',
             'error' => 'required',
+            'ket_error' => 'required_if:error,Ada',
+            'submitted' => 'required'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -48,7 +54,6 @@ class WebsiteController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $user = auth()->user();
 
         // Simpan data
         $websiteData = [
@@ -64,7 +69,7 @@ class WebsiteController extends Controller
             'keamanan' => $request->input('keamanan'),
             'error' => $request->input('error'),
             'ket_error' => $request->input('ket_error'),
-            'submitted' => $user->email,
+            'submitted' => $request->input('submitted'),
         ];
 
         $website = Website::create($websiteData);
@@ -75,6 +80,7 @@ class WebsiteController extends Controller
             return redirect()->back()->with('error', 'Gagal menyimpan data.');
         }
     }
+
 
 
     public function edit($id)
@@ -101,6 +107,8 @@ class WebsiteController extends Controller
             'cms' => 'required',
             'keamanan' => 'required',
             'error' => 'required',
+            'ket_error' => 'required_if:error,Ada',
+            'submitted' => 'required'
         ]);
 
         // Perbarui atribut sesuai dengan input dari formulir
@@ -121,6 +129,7 @@ class WebsiteController extends Controller
         $data->keamanan = $request->input('keamanan');
         $data->error = $request->input('error');
         $data->ket_error = $request->input('ket_error');
+        $data->submitted = $request->input('submitted');
 
         if ($data->save()) {
             return redirect()->route('website')->with('success', 'Data berhasil diperbarui.');

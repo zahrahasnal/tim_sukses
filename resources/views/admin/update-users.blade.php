@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="card card-info card-outline">
         <div class="card-body">
-          <form action="{{ route('update-users', ['id' => $users->id]) }}" method="POST">
+          <form action="{{ route('update-users', ['id' => $users->id]) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             @if ($errors->any())
@@ -93,9 +93,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <div class="form-group">
-                @method('PUT')
                 <label for="foto">Foto</label>
-                <input type="file" name="foto" class="form-control-file">
+                <input type="file" name="foto" class="form-control-file" placeholder="Choose an image" value="{{ $users->foto ??  old('foto') }}">
                 <p class="text-danger">*Max:2mb, Fortmat:jpg,jpeg,png</p>
             </div>
 

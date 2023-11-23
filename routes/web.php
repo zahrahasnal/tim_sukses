@@ -56,5 +56,3 @@ Route::get('delete-users/{id}', [UserController::class, 'destroy'])->name('delet
 Route::get('search-users', [UserController::class, 'search'])->name('search-users');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-
-Route::get('/chart-data', [ApiController::class, 'getChartData']);

@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Closure;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class UserController extends Controller
@@ -76,48 +78,52 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        //validasi input
+        $user = User::find($id);
+
+        // Validasi input
         $request->validate([
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
             'no_hp' => 'required',
             'alamat' => 'required',
             'jenis_kel' => 'required',
             'password' => [
                 'required',
                 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
-            ], // Validasi foto
+            ],
+            'foto' => 'required|image|max:2048', // Validasi foto
             'level' => 'required',
             'posisi' => 'required',
         ]);
 
-        $users = User::find($id);
-
-        if (!$users) {
-            return redirect()->route('users')->with('error', 'Pengguna tidak ditemukan.');
-        }
-
-        // perbarui data
-        $users->nama = $request->input('nama');
-        $users->email = $request->input('email');
-        $users->no_hp = $request->input('no_hp');
-        $users->alamat = $request->input('alamat');
-        $users->jenis_kel = $request->input('jenis_kel');
-        $users->password = Hash::make($request->input('password'));
-        $users->password = Hash::make($request->input('password'));
+        // Update data pengguna
+        $user->nama = $request->input('nama');
+        $user->email = $request->input('email');
+        $user->no_hp = $request->input('no_hp');
+        $user->alamat = $request->input('alamat');
+        $user->jenis_kel = $request->input('jenis_kel');
+        $user->password = Hash::make($request->input('password'));
+        $user->level = $request->input('level');
+        $user->posisi = $request->input('posisi');
 
         if ($request->hasFile('foto')) {
-            $path = $request->file('foto')->store('public/foto');
-            $users->foto = $path;
+            if ($user->foto) {
+                Storage::disk('public')->delete('foto_users/' . $user->foto);
+            }
+            $file = $request->file('foto');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('foto_users', $filename, 'public');
+
+            $user->foto = $filename;
         }
 
-        $users->level = $request->input('level');
-        $users->posisi = $request->input('posisi');
+        $user->save();
 
-        // Simpan perubahan.
-        $users->save();
-
-        return redirect()->route('users')->with('success', 'Data pengguna berhasil diperbarui.');
+        if ($user) {
+            return redirect()->route('users')->with('success', 'Data berhasil diupdate.');
+        } else {
+            return redirect()->back()->with('error', 'Gagal mengupdate data.');
+        }
     }
 
 

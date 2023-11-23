@@ -188,6 +188,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <label for="ket_error">Deskripsi Error</label>
                 <textarea id="ket_error" name="ket_error" class="form-control" placeholder="Deskripsi Error" value="{{ $website->ket_error ?? old('ket_error') }}"></textarea>
             </div>
+
+            <input type="hidden" name="submitted" value="{{ auth()->user()->nama }}">
+
             <button type="submit" name="submit" class="btn btn-primary">Ubah Data</button>
             </form>
         </div>
@@ -215,6 +218,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('template.script')
-@include('sweetalert::alert')
 </body>
 </html>

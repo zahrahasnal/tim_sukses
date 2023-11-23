@@ -24,6 +24,7 @@ class Website extends Model
         'cms',
         'keamanan',
         'error',
-        'ket_error'
+        'ket_error',
+        'submitted'
     ];
 }

@@ -75,11 +75,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
         <div class="card-body" style="overflow-x: auto;">
-          <table class="table table-boardered">
+          <table class="table table-boardered" id="websiteTable">
             <tr>
               <th>No</th>
-              <th>Website</th>
-              <th>kategori</th>
+              <th data-sortable="true">Website</th>
+              <th data-sortable="true">Kategori</th>
               <th>Kode WHM</th>
               <th>status</th>
               <th>Tgl Pemantauan</th>

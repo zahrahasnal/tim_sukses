@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <div class="form-group">
-                <label for="jenis_kel">Gender</label>
+                <label for="jenis_kel">Jenis Kelamin</label>
                 <select name="jenis_kel" class="form-control">
                     <option value="Laki-laki" {{ old('jenis_kel') === 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                     <option value="Perempuan" {{ old('jenis_kel') === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
@@ -93,12 +93,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <div class="form-group">
-                <label for="foto">Image</label>
+                <label for="foto">Foto</label>
                 <input type="file" name="foto" class="form-control-file" placeholder="Choose an image">
+                <p class="text-danger">*Max:2mb, Fortmat:jpg,jpeg,png</p>
             </div>
 
             <div class="form-group">
-                <label for="alamat">Address</label>
+                <label for="alamat">Alamat</label>
                 <textarea name="alamat" class="form-control" placeholder="Add Address" value="{{ old('alamat') }}"></textarea>
             </div>
 

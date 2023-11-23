@@ -28,3 +28,7 @@
 
     <!-- Include the dashboard.js file -->
     <script type="text/javascript" src="{{ asset('js/dashboard.js') }}"></script>
+
+    <!-- Pie Chart -->
+
+

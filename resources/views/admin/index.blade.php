@@ -7,6 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 <head>
   @include('template.head')
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -196,9 +197,124 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
 
 
-      <!-- Pie Chart -->
-      <div id="piechart_3d" style="width: 500px; height: 300px;"></div>
 
+      <div class="card py-3 px-3">
+        <div class="row">
+          <div class="col-6 col-md-3">
+            <canvas id="chart2" width="300" height="300"></canvas>
+          </div>
+          <div class="col-6 col-md-3">
+            <canvas id="chart1" width="200" height="200"></canvas>
+          </div>
+          <div class="col-6 col-md-3">
+            <canvas id="chart3" width="200" height="200"></canvas>
+          </div>
+          <div class="col-6 col-md-3">
+            <canvas id="chart4" width="200" height="200"></canvas>
+          </div>
+          <div class="col-6 col-md-3">
+            <canvas id="chart5" width="200" height="200"></canvas>
+          </div>
+          <div class="col-6 col-md-3">
+            <canvas id="chart6" width="200" height="200"></canvas>
+          </div>
+            <div class="col-6 col-md-3">
+          <canvas id="chart7" width="200" height="200"></canvas>
+          </div>
+            <div class="col-6 col-md-3">
+              <canvas id="chart8" width="200" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          var chartColors = [
+              'rgba(255, 99, 132, 0.8)',
+              'rgba(54, 162, 235, 0.8)',
+              'rgba(255, 206, 86, 0.8)',
+              'rgba(75, 192, 192, 0.8)',
+              'rgba(153, 102, 255, 0.8)',
+              'rgba(255, 159, 64, 0.8)',
+          ];
+
+          function createPieChart(id, title, data, labels, colors) {
+              var total = data.reduce((acc, val) => acc + val, 0);
+
+              new Chart(document.getElementById(id), {
+                  type: 'pie',
+                  data: {
+                      labels: labels,
+                      datasets: [{
+                          data: data,
+                          backgroundColor: colors,
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                      }],
+                  },
+                  options: {
+                      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                      borderColor: 'rgba(0, 0, 0, 0.1)',
+                      responsive: true,
+                      plugins: {
+                          legend: {
+                              display: true,
+                              position: 'right',
+                          },
+                          title: {
+                              display: true,
+                              text: title,
+                          },
+                          tooltip: {
+                              callbacks: {
+                                  label: function(context) {
+                                      var value = context.dataset.data[context.dataIndex];
+                                      var percentage = ((value / total) * 100).toFixed(2) + '%';
+                                      return context.label + ': ' + value + ' (' + percentage + ')';
+                                  },
+                              },
+                          },
+                      },
+                  },
+              });
+          }
+
+          // Variables
+          var titleKdWhm = @json($titleKdWhm);
+          var labelsKdWhm = @json($labelsKdWhm);
+          var dataKdWhm = @json($dataKdWhm);
+          var titleKategori = @json($titleKategori);
+          var dataKategori = @json($dataKategori);
+          var labelsKategori = @json($labelsKategori);
+          var titleStatus = @json($titleStatus);
+          var dataStatus = @json($dataStatus);
+          var labelsStatus = @json($labelsStatus);
+          var titleBerita = @json($titleBerita);
+          var dataBerita = @json($dataBerita);
+          var labelsBerita = @json($labelsBerita);
+          var titleLogo = @json($titleLogo);
+          var dataLogo = @json($dataLogo);
+          var labelsLogo = @json($labelsLogo);
+          var titleCms = @json($titleCms);
+          var dataCms = @json($dataCms);
+          var labelsCms = @json($labelsCms);
+          var titleKeamanan = @json($titleKeamanan);
+          var dataKeamanan = @json($dataKeamanan);
+          var labelsKeamanan = @json($labelsKeamanan);
+          var titleError = @json($titleError);
+          var dataError = @json($dataError);
+          var labelsError = @json($labelsError);
+
+          // Example usage
+          createPieChart('chart1', titleKdWhm, dataKdWhm, labelsKdWhm, chartColors);
+          createPieChart('chart2', titleKategori, dataKategori, labelsKategori, chartColors);
+          createPieChart('chart3', titleStatus, dataStatus, labelsStatus, chartColors);
+          createPieChart('chart4', titleBerita, dataBerita, labelsBerita, chartColors);
+          createPieChart('chart5', titleLogo, dataLogo, labelsLogo, chartColors);
+          createPieChart('chart6', titleCms, dataCms, labelsCms, chartColors);
+          createPieChart('chart7', titleKeamanan, dataKeamanan, labelsKeamanan, chartColors);
+          createPieChart('chart8', titleError, dataError, labelsError, chartColors);
+      </script>
+
+                        
   <div class="card card-info card-outline">
         <div class="card-header">
           <div class="card-tools">

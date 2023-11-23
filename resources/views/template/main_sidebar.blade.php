@@ -22,60 +22,60 @@
               <a href="{{ route('website') }}" class="nav-link">
                   <i class="nav-icon fas fa-globe"></i>
                   <p>Manage Website</p>
-                  <i class="right fas fa-angle-left"></i>
+                  <i class="nav-item right fas fa-angle-left"></i>
               </a>
               <ul class="nav nav-treeview">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('pendidikan') }}">
-                <p>Bidang Pendidikan</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('infrastruktur') }}">
-                <p>Bidang Infrastruktur</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('pemerintahan') }}">
-                <p>Bidang Pemerintahan</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('layanan-publik') }}">
-                <p>Bidang Layanan Publik</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('integrasi-sistem') }}">
-                <p>Bidang Integrasi Sistem</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('web-opd') }}">
-                <p>Web OPD</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('web-kecamatan') }}">
-                <p>Web Kecamatan</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('web-kelurahan') }}">
-                <p>Web Kelurahan</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('web-smp') }}">
-                <p>Web SMP</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('web-sd') }}">
-                <p>Web SD</p>
-            </a>
-        </li>
-    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pendidikan') }}">
+                        <p>Bidang Pendidikan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('infrastruktur') }}">
+                        <p>Bidang Infrastruktur</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pemerintahan') }}">
+                        <p>Bidang Pemerintahan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('layanan-publik') }}">
+                        <p>Bidang Layanan Publik</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('integrasi-sistem') }}">
+                        <p>Bidang Integrasi Sistem</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('web-opd') }}">
+                        <p>Web OPD</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('web-kecamatan') }}">
+                        <p>Web Kecamatan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('web-kelurahan') }}">
+                        <p>Web Kelurahan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('web-smp') }}">
+                        <p>Web SMP</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('web-sd') }}">
+                        <p>Web SD</p>
+                    </a>
+                </li>
+            </ul>
           </li>
       </nav>
       <!-- /.sidebar-menu -->
