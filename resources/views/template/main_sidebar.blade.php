@@ -13,7 +13,7 @@
           <li class="nav-item">
               <a href="{{ route('users') }}" class="nav-link">
                   <i class="nav-icon fas fa-user-shield"></i>
-                  <p>Manage User</p>
+                  <p>Master User</p>
               </a>
           </li>
           @endif
@@ -21,10 +21,15 @@
           <li class="nav-item">
               <a href="{{ route('website') }}" class="nav-link">
                   <i class="nav-icon fas fa-globe"></i>
-                  <p>Manage Website</p>
+                  <p>Master Website</p>
                   <i class="nav-item right fas fa-angle-left"></i>
               </a>
               <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('website') }}">
+                        <p>Semua Data Website</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pendidikan') }}">
                         <p>Bidang Pendidikan</p>
@@ -76,6 +81,12 @@
                     </a>
                 </li>
             </ul>
+          </li>
+           <li class="nav-item">
+              <a href="{{ route('laporan') }}" class="nav-link">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>Master Laporan</p>
+              </a>
           </li>
       </nav>
       <!-- /.sidebar-menu -->

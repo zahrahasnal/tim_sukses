@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DownloadController;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +43,10 @@ Route::get('manage-website/web-kecamatan/view', [WebsiteController::class, 'webK
 Route::get('manage-website/web-kelurahan/view', [WebsiteController::class, 'webKelurahan'])->name('web-kelurahan');
 Route::get('manage-website/web-smp/view', [WebsiteController::class, 'smp'])->name('web-smp');
 Route::get('manage-website/web-sd/view', [WebsiteController::class, 'sd'])->name('web-sd');
+
+Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
+Route::get('/laporan/view_file/{filename}', [LaporanController::class, 'viewFile'])->name('view-file');
+Route::get('/search-laporan', [LaporanController::class, 'searchLaporan'])->name('search-laporan');
 
 Route::get('/download/{category}', [DownloadController::class, 'downloadCategoryPDF'])->name('download.category');
 Route::get('/download', [DownloadController::class, 'downloadAll'])->name('download.all');

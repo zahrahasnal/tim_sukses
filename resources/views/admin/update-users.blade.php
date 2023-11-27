@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('users') }}">Manage Users</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('users') }}">Master Users</a></li>
               <li class="breadcrumb-item active">Edit Users</li>
             </ol>
           </div><!-- /.col -->
@@ -124,7 +124,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <input type="password" name="password" class="form-control" value="{{ $users->password ?? old('password') }}">
                 <p class="text-danger">*Kata sandi yang dimasukkan harus minimum 8 karakter dari kombinasi huruf kapital, huruf kecil, dan angka</p>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Ubah Data</button>
         </form>
         </div>
       </div>

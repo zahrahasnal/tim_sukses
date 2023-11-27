@@ -40,12 +40,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Profile</h1>
+            <h1 class="m-0 text-dark">Profil</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('users') }}">Users</a></li>
-              <li class="breadcrumb-item active">Profile</li>
+              <li class="breadcrumb-item active">Profil</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -76,7 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </td>
                                   </tr>
                                     <tr>
-                                        <th>Name:</th>
+                                        <th>Nama:</th>
                                         <td>{{ Auth::user()->nama }}</td>
                                     </tr>
                                     <tr>
@@ -84,15 +84,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <td>{{ Auth::user()->email }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Phone Number:</th>
+                                        <th>No Handphone:</th>
                                         <td>{{ Auth::user()->no_hp }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Address:</th>
+                                        <th>Alamat:</th>
                                         <td>{{ Auth::user()->alamat }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Gender:</th>
+                                        <th>Jenis Kelamin:</th>
                                         <td>{{ Auth::user()->jenis_kel }}</td>
                                     </tr>
                                     <tr>
@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="mt-3">
     <form method="POST" action="{{ route('logout') }}">
         @csrf
-        <button type="submit" class="btn btn-primary">Logout</button>
+        <button type="submit" class="btn btn-primary">Keluar</button>
     </form>
 </div>
 

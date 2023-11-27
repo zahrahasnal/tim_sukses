@@ -58,15 +58,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="card-header">
             <div class="row">
                 <div class="col-md-6">
-                   <form action="{{ route('search-users') }}" method="GET" class="input-group mb-3">
-                    <input type="text" name="search" class="form-control" placeholder="Cari Data Users" aria-label="Cari" aria-describedby="button-addon">
+                   <form action="{{ route('search-website') }}" method="GET" class="input-group mb-3">
+                    <input type="text" name="search" class="form-control" placeholder="Cari Data Website" aria-label="Cari" aria-describedby="button-addon">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" type="submit" id="button-addon"><i class="fas fa-search"></i></button>
                     </div>
                   </form>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="{{ route('create-website') }}" class="btn btn-success">Add <i class="fas fa-plus-square"></i></a>
+                    <a href="{{ route('create-website') }}" class="btn btn-success">Tambah <i class="fas fa-plus-square"></i></a>
                     <a href="{{ route('download.all') }}" class="btn btn-success">Download <i class="fas fa-download"></i></a>
                 </div>
             </div>
@@ -109,7 +109,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <td>{{ $website->ket_error }}</td>
               <td>
                   <a href="{{ route('edit-website', ['id' => $website->id]) }}" class="edit-icon"><i class="fas fa-edit"></i></a>
-                  <a href="{{ route('delete-website', $website->id) }}" class="edit-icon"><i class="fas fa-trash text-danger"></i></a>
+                  <a href="#" class="delete-icon" onclick="confirmDelete({{ $website->id }})">
+                    <i class="fas fa-trash text-danger"></i>
+                  </a>
               </td>
 
             </tr>

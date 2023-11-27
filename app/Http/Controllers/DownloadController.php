@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use PDF;
+use Carbon\Carbon;
 
 class DownloadController extends Controller
 {
@@ -39,7 +40,6 @@ class DownloadController extends Controller
 
         return $pdf->download("laporan_monitoring_website_$category" . "_$currentMonthYear.pdf");
         return view('admin.pdf', compact('data', 'customTitle'));
-
     }
 
     public function dwnldPendidikan()

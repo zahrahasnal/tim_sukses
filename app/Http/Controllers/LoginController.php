@@ -39,6 +39,17 @@ class LoginController extends Controller
     public function dashboard()
     {
         $allData = Website::all();
+        $allUser = User::all();
+
+        $groupByKategori = $allUser->groupBy('level')->map->count();
+        $titleLevel = "Level";
+        $labelsLevel = $groupByKategori->keys()->toArray();
+        $dataLevel = $groupByKategori->values()->toArray();
+
+        $groupByPosisi = $allUser->groupBy('posisi')->map->count();
+        $titlePosisi = "Posisi";
+        $labelsPosisi = $groupByPosisi->keys()->toArray();
+        $dataPosisi = $groupByPosisi->values()->toArray();
 
         $groupByKategori = $allData->groupBy('kategori')->map->count();
         $titleKategori = "Kategori";
@@ -111,6 +122,12 @@ class LoginController extends Controller
                 'titleError',
                 'labelsError',
                 'dataError',
+                'titleLevel',
+                'labelsLevel',
+                'dataLevel',
+                'titlePosisi',
+                'labelsPosisi',
+                'dataPosisi'
             )
         );
     }

@@ -8,6 +8,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   @include('template.head')
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -197,35 +203,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
 
 
-
       <div class="card py-3 px-3">
         <div class="row">
-          <div class="col-6 col-md-3">
-            <canvas id="chart2" width="300" height="300"></canvas>
-          </div>
-          <div class="col-6 col-md-3">
-            <canvas id="chart1" width="200" height="200"></canvas>
-          </div>
-          <div class="col-6 col-md-3">
-            <canvas id="chart3" width="200" height="200"></canvas>
-          </div>
-          <div class="col-6 col-md-3">
-            <canvas id="chart4" width="200" height="200"></canvas>
-          </div>
-          <div class="col-6 col-md-3">
-            <canvas id="chart5" width="200" height="200"></canvas>
-          </div>
-          <div class="col-6 col-md-3">
-            <canvas id="chart6" width="200" height="200"></canvas>
-          </div>
-            <div class="col-6 col-md-3">
-          <canvas id="chart7" width="200" height="200"></canvas>
-          </div>
-            <div class="col-6 col-md-3">
-              <canvas id="chart8" width="200" height="200"></canvas>
+          @if (Auth::user() && Auth::user()->level === 'Admin')
+            <div class="col">
+                <canvas id="chart1" ></canvas>
             </div>
+          @endif
+            <div class="col">
+                <canvas id="chart3" ></canvas>
+            </div>
+            <div class="col">
+                <canvas id="chart4" ></canvas>
+            </div>
+            <div class="col">
+                <canvas id="chart5" ></canvas>
+            </div>
+            <div class="col">
+                <canvas id="chart6" ></canvas>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <canvas id="chart7" ></canvas>
+          </div>
+          <div class="col">
+            <canvas id="chart8" ></canvas>
+          </div>
+          <div class="col">
+            <canvas id="chart9" ></canvas>
+          </div>
+          <div class="col">
+            <canvas id="chart10" ></canvas>
           </div>
         </div>
+
 
         <script>
           var chartColors = [
@@ -256,8 +268,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       responsive: true,
                       plugins: {
                           legend: {
-                              display: true,
-                              position: 'right',
+                              display: false,
                           },
                           title: {
                               display: true,
@@ -278,6 +289,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           }
 
           // Variables
+          
           var titleKdWhm = @json($titleKdWhm);
           var labelsKdWhm = @json($labelsKdWhm);
           var dataKdWhm = @json($dataKdWhm);
@@ -302,17 +314,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
           var titleError = @json($titleError);
           var dataError = @json($dataError);
           var labelsError = @json($labelsError);
+          var titleLevel = @json($titleLevel);
+          var dataLevel = @json($dataLevel);
+          var labelsLevel = @json($labelsLevel);
+          var titlePosisi = @json($titlePosisi);
+          var labelsPosisi = @json($labelsPosisi);
+          var dataPosisi = @json($dataPosisi);
+
 
           // Example usage
-          createPieChart('chart1', titleKdWhm, dataKdWhm, labelsKdWhm, chartColors);
-          createPieChart('chart2', titleKategori, dataKategori, labelsKategori, chartColors);
-          createPieChart('chart3', titleStatus, dataStatus, labelsStatus, chartColors);
-          createPieChart('chart4', titleBerita, dataBerita, labelsBerita, chartColors);
-          createPieChart('chart5', titleLogo, dataLogo, labelsLogo, chartColors);
-          createPieChart('chart6', titleCms, dataCms, labelsCms, chartColors);
-          createPieChart('chart7', titleKeamanan, dataKeamanan, labelsKeamanan, chartColors);
-          createPieChart('chart8', titleError, dataError, labelsError, chartColors);
+           
+          createPieChart('chart1', titleLevel, dataLevel, labelsLevel, chartColors );
+          // createPieChart('chart2', titlePosisi, dataPosisi, labelsPosisi, chartColors);
+         
+          createPieChart('chart3', titleKategori, dataKategori, labelsKategori, chartColors);
+          createPieChart('chart4', titleKdWhm, dataKdWhm, labelsKdWhm, chartColors);
+          createPieChart('chart5', titleStatus, dataStatus, labelsStatus, chartColors);
+          createPieChart('chart6', titleBerita, dataBerita, labelsBerita, chartColors);
+          createPieChart('chart7', titleLogo, dataLogo, labelsLogo, chartColors );
+          createPieChart('chart8', titleCms, dataCms, labelsCms, chartColors);
+          createPieChart('chart9', titleKeamanan, dataKeamanan, labelsKeamanan, chartColors);
+          createPieChart('chart10', titleError, dataError, labelsError, chartColors);
       </script>
+      </div>
 
                         
   <div class="card card-info card-outline">
@@ -358,7 +382,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <td>{{ $website->ket_error }}</td>
               <td>
                   <a href="{{ route('edit-website', ['id' => $website->id]) }}" class="edit-icon"><i class="fas fa-edit"></i></a>
-                  <a href="{{ route('delete-website', $website->id) }}" class="edit-icon"><i class="fas fa-trash text-danger"></i></a>
+                  <a href="#" class="delete-icon" onclick="confirmDelete({{ $website->id }})">
+                      <i class="fas fa-trash text-danger"></i>
+                  </a>
               </td>
 
             </tr>

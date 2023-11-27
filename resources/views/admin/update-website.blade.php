@@ -40,12 +40,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Website</h1>
+            <h1 class="m-0 text-dark">Master Website</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Manage Website</a></li>
-              <li class="breadcrumb-item active">Update Data</li>
+              <li class="breadcrumb-item"><a href="#">Master Website</a></li>
+              <li class="breadcrumb-item active">Edit Data</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

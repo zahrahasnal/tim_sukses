@@ -190,7 +190,7 @@ class WebsiteController extends Controller
 
     public function infrastruktur()
     {
-        $data = Website::where('kategori', 'Bidang Insfrastruktur')->paginate(10);
+        $data = Website::where('kategori', 'Bidang Infrastruktur')->paginate(10);
         return view('admin.index-infrastruktur', compact('data'));
     }
 

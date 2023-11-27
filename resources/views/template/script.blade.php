@@ -23,12 +23,13 @@
     }
 </script>
 
-<!-- Include the Google Charts library -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-    <!-- Include the dashboard.js file -->
-    <script type="text/javascript" src="{{ asset('js/dashboard.js') }}"></script>
-
-    <!-- Pie Chart -->
+<script>
+    function confirmDelete(websiteId) {
+        if (confirm('Are you sure you want to delete this website?')) {
+            // If the user clicks "OK", redirect to the delete route for websites
+            window.location.href = "{{ route('delete-website', '') }}/" + websiteId;
+        }
+    }
+</script>
 
 
