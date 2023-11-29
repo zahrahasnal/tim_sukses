@@ -1,13 +1,45 @@
-<!-- resources/views/update-password.blade.php -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Password</title>
+    <title>Login Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; /* Menghilangkan margin bawaan body */
+        }
+
+        .custom-container {
+            width: 450px;
+        }
+
+        .card {
+            /* Menengahkan card dengan Flexbox */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group img {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container custom-container">
         <div class="card">
@@ -25,11 +57,12 @@
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-block">Update Password</button>
+                        <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </body>
+
 </html>

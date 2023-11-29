@@ -59,7 +59,12 @@ class LupaPasswordController extends Controller
     {
         $request->validate([
             'token' => 'required',
-            'password' => 'required|confirmed|min:8',
+            'password' => [
+                'required',
+                'confirmed',
+                'min:8',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
+            ],
         ]);
 
         $user = User::where('reset_token', $request->token)->first();
@@ -73,7 +78,6 @@ class LupaPasswordController extends Controller
 
             return redirect()->route('showformlogin')->with('status', 'Password Anda berhasil direset. Silakan login.');
         }
-
         abort(404);
     }
 }
