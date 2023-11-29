@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html lang="en">
 
 <head>
@@ -12,25 +16,26 @@
         @include('template.navbar')
         <!-- /.navbar -->
 
-        <!-- Kontainer Sidebar Utama -->
+        <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Logo Brand -->
+            <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="{{ asset('img/logo.jpg') }}" alt="DISKOMINFO KOTA SEMARANG" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="{{asset ('img/logo.jpg')}}" alt="DISKOMINFO KOTA SEMARANG" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light" style="font-size: 13px;">DISKOMINFO KOTA SEMARANG</span>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Panel Pengguna Sidebar (opsional) -->
+                <!-- Sidebar user panel (optional) -->
 
-                <!-- Menu Sidebar -->
+
+                <!-- Sidebar Menu -->
                 @include('template.main_sidebar')
-                <!-- Akhir Menu Sidebar -->
+                <!-- End Sidebar Menu -->
 
-                <!-- Konten Wrapper. Berisi konten halaman -->
+                <!-- Content Wrapper. Contains page content -->
                 <div class="content-wrapper">
-                    <!-- Header Konten (Header Halaman) -->
+                    <!-- Content Header (Page header) -->
                     <div class="content-header">
                         <div class="container-fluid">
                             <div class="row mb-2">
@@ -47,9 +52,9 @@
                             </div><!-- /.row -->
                         </div><!-- /.container-fluid -->
                     </div>
-                    <!-- /.Header Konten -->
+                    <!-- /.content-header -->
 
-                    <!-- Konten Utama -->
+                    <!-- Main content -->
                     <div class="content">
                         <div class="card card-info card-outline">
                             <div class="card-header">
@@ -74,9 +79,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Website</th>
-                                        <th>Kategori</th>
+                                        <th>kategori</th>
                                         <th>Kode WHM</th>
-                                        <th>Status</th>
+                                        <th>status</th>
                                         <th>Tgl Pemantauan</th>
                                         <th>Tgl Last Update</th>
                                         <th>Berita</th>
@@ -106,8 +111,9 @@
                                             <a href="{{ route('edit-website', ['id' => $website->id]) }}" class="edit-icon"><i class="fas fa-edit"></i></a>
                                             <a href="#" class="delete-icon" onclick="confirmDelete({{ $website->id }})">
                                                 <i class="fas fa-trash text-danger"></i>
-                                            </a>                                        
+                                            </a>
                                         </td>
+
                                     </tr>
                                     @endforeach
                                 </table>
@@ -131,21 +137,21 @@
                                         </li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
-                    <!-- /.Konten Utama -->
+                    <!-- /.content -->
                 </div>
-                <!-- / Akhir Konten Wrapper -->
+                <!-- / End content-wrapper -->
 
-                <!-- Kontrol Sidebar -->
+                <!-- Control Sidebar -->
                 <aside class="control-sidebar control-sidebar-dark">
-                    <!-- Konten kontrol sidebar di sini -->
+                    <!-- Control sidebar content goes here -->
                     <div class="p-3">
-                        <h5>Judul</h5>
-                        <p>Konten sidebar</p>
+                        <h5>Title</h5>
+                        <p>Sidebar content</p>
                     </div>
                 </aside>
-                <!-- / Akhir kontrol-sidebar -->
                 <!-- / End control-sidebar -->
 
                 <!-- Main Footer -->

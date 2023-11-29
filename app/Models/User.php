@@ -22,6 +22,7 @@ class User extends Authenticatable
         'foto',
         'level',
         'posisi',
+        'reset_token',
     ];
 
     protected $hidden = [

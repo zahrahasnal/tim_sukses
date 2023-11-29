@@ -118,9 +118,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="form-group">
                 <label for="status">Status</label>
                 <div>
-                    <input type="radio" name="status" id="status1" value="Ada" {{ $website && $website->status === 'Ada' ? 'checked' : '' }}>
+                    <input type="radio" name="status" id="status1" value="Ada" {{ ($website->berita ?? '') === 'Ada' ? 'checked' : '' }}>
                     <label style="font-weight: normal; margin-right: 20px;" for="status1">Ada</label>
-                    <input type="radio" name="status" id="status2" value="Tidak Ada" {{ $website && $website->status === 'Tidak Ada' ? 'checked' : '' }}>
+                    <input type="radio" name="status" id="status2" value="Tidak Ada" {{ ($website->berita ?? '') === 'Tidak Ada' ? 'checked' : '' }}>
                     <label style="font-weight: normal;" for="status2">Tidak Ada</label>
                 </div>
               </div>

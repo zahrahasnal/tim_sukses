@@ -81,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="form-group">
                 <label for="no_hp">No Handphone</label>
-                <input type="text" name="no_hp" class="form-control" placeholder="" value="{{ old('no_hp') }}">
+                <input type="text" name="no_hp" class="form-control" placeholder="Gunakan +62 value="{{ old('no_hp') }}">
+                <p class="text-danger">contoh : +6289511111111</p>
             </div>
 
             <div class="form-group">

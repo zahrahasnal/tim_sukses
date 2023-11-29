@@ -44,7 +44,7 @@
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <label for="forgotPassword">Lupa Password? <a href="#">Klik di sini</a></label>
+                    <label for="forgotPassword">Lupa Password? <a href="{{ route('lupa-password')}}">Klik di sini</a></label>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-block">Login</button>

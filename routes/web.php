@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\LupaPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,16 @@ Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('s
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login');
 Route::get('dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Halaman lupa password
+Route::get('lupa-password', [LupaPasswordController::class, 'index'])->name('lupa-password');
+Route::post('/reset-password', [LupaPasswordController::class, 'sendResetLinkEmail'])->name('reset-password');
+
+// Halaman update password
+Route::get('/update-password/{token}', [LupaPasswordController::class, 'showResetForm'])->name('update-password');
+Route::post('/update-password', [LupaPasswordController::class, 'updatePassword'])->name('update-password.post');
+
+
 
 // Route::get('/', function () { return view('login'); });
 Route::get('website', [WebsiteController::class, 'index'])->name('website');
@@ -54,7 +65,8 @@ Route::get('/download', [DownloadController::class, 'downloadAll'])->name('downl
 Route::get('users', [UserController::class, 'index'])->name('users');
 Route::get('create-users', [UserController::class, 'create'])->name('create-users');
 Route::post('save-users', [UserController::class, 'store'])->name('save-users');
-Route::get('edit-users/{id}', [UserController::class, 'edit'])->name('edit-users');
+Route::get('edit-data-users/{id}', [UserController::class, 'editByUser'])->name('edit-data-users');
+Route::get('edit-users/{id}', [UserController::class, 'editByAdmin'])->name('edit-users-byadmin');
 Route::put('update-users/{id}', [UserController::class, 'update'])->name('update-users');
 Route::get('delete-users/{id}', [UserController::class, 'destroy'])->name('delete-users');
 Route::get('search-users', [UserController::class, 'search'])->name('search-users');

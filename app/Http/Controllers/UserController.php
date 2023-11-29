@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -80,22 +81,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        // Validasi input
-        $request->validate([
-            'nama' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'no_hp' => 'required',
-            'alamat' => 'required',
-            'jenis_kel' => 'required',
-            'password' => [
-                'required',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
-            ],
-            'foto' => 'required|image|max:2048', // Validasi foto
-            'level' => 'required',
-            'posisi' => 'required',
-        ]);
-
         // Update data pengguna
         $user->nama = $request->input('nama');
         $user->email = $request->input('email');
@@ -142,7 +127,16 @@ class UserController extends Controller
         }
     }
 
-    public function edit($id)
+    public function editByAdmin($id)
+    {
+        $users = User::find($id);
+        if (!$users) {
+            $users = new User;
+        }
+        return view('admin.update-users-byadmin', compact('users'));
+    }
+
+    public function editByUser($id)
     {
         $users = User::find($id);
         if (!$users) {

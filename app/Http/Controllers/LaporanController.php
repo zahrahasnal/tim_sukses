@@ -5,11 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
-use PDF;
-use Illuminate\Support\Facades\Log;
-use App\Models\LaporanPerBulan;
 
 
 class LaporanController extends Controller

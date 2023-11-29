@@ -70,7 +70,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="col-md-6 text-right">
               <a href="{{ route('create-users') }}" class="btn btn-success">Add <i class="fas fa-plus-square"></i></a>
-              <a href="{{ route('download.all') }}" class="btn btn-success">Download <i class="fas fa-download"></i></a>
             </div>
           </div>
         </div>
@@ -107,7 +106,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <td>{{ $user->level }}</td>
               <td>{{ $user->posisi }}</td>
               <td>
-                <a href="{{ route('edit-users', $user->id)}}" class="edit-icon"><i class="fas fa-edit"></i></a>
+                <a href="{{ route('edit-users-byadmin', $user->id)}}" class="edit-icon"><i class="fas fa-edit"></i></a>
                 <a href="#" class="edit-icon" onclick="confirmDelete({{ $user->id }})">
                     <i class="fas fa-trash text-danger"></i>
                 </a>

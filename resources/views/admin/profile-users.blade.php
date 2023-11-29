@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                   <tr>
                                     <th style="border-top: none;"> </th>
                                     <td style="text-align: right; border-top: none;">
-                                        <a href="{{ route('edit-users', $user->id)}}" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('edit-data-users', $user->id)}}" class="edit-icon"><i class="fas fa-edit"></i></a>
                                     </td>
                                   </tr>
                                     <tr>
