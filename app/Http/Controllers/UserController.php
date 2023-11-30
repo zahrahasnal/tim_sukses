@@ -17,12 +17,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        return view('admin.index-users', compact('users'));
+        return view('user.index-users', compact('users'));
     }
 
     public function create()
     {
-        return view('admin.create-users');
+        return view('user.create-users');
     }
 
     public function store(Request $request)
@@ -116,14 +116,10 @@ class UserController extends Controller
     {
         $users = User::find($id);
 
-        if ($users) { // Periksa apakah objek ditemukan
-            if ($users->delete()) {
-                return redirect()->route('users')->with('success', 'Data berhasil dihapus.');
-            } else {
-                return redirect()->route('users')->with('error', 'Gagal menghapus data.');
-            }
+        if ($users->delete()) {
+            return redirect()->route('users')->with('success', 'Data berhasil dihapus.');
         } else {
-            return redirect()->route('users')->with('error', 'Data tidak ditemukan.');
+            return redirect()->route('users')->with('error', 'Gagal menghapus data.');
         }
     }
 
@@ -133,7 +129,7 @@ class UserController extends Controller
         if (!$users) {
             $users = new User;
         }
-        return view('admin.update-users-byadmin', compact('users'));
+        return view('user.update-users-byadmin', compact('users'));
     }
 
     public function editByUser($id)
@@ -142,7 +138,7 @@ class UserController extends Controller
         if (!$users) {
             $users = new User;
         }
-        return view('admin.update-users', compact('users'));
+        return view('user.update-users', compact('users'));
     }
 
     public function handle($request, Closure $next, $role)
@@ -169,6 +165,6 @@ class UserController extends Controller
             // Tambahkan kondisi pencarian lainnya sesuai kebutuhan
         })->paginate(10);
 
-        return view('admin.index-users', compact('users', 'searchTerm'));
+        return view('user.index-users', compact('users', 'searchTerm'));
     }
 }

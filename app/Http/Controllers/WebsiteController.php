@@ -17,12 +17,12 @@ class WebsiteController extends Controller
     public function index()
     {
         $data = Website::paginate(10);
-        return view('admin.index-website', compact('data'));
+        return view('website.index-website', compact('data'));
     }
 
     public function create()
     {
-        return view('admin.create-website');
+        return view('website.create-website');
     }
 
     public function user()
@@ -89,7 +89,7 @@ class WebsiteController extends Controller
         if (!$website) {
             $website = new Website;
         }
-        return view('admin.update-website', compact('website'));
+        return view('website.update-website', compact('website'));
     }
 
     public function update(Request $request, $id)
@@ -141,7 +141,7 @@ class WebsiteController extends Controller
     // public function edit($id)
     // {
     //     $data = Website::find($id);
-    //     return view('admin.update-website', compact('website'));
+    //     return view('website.update-website', compact('website'));
     // }
 
     public function search(Request $request)
@@ -168,7 +168,7 @@ class WebsiteController extends Controller
                 ->orWhere('ket_error', 'LIKE', "%$searchTerm%");
         })->paginate(10);
 
-        return view('admin.index-website', compact('data', 'searchTerm'));
+        return view('website.index-website', compact('data', 'searchTerm'));
     }
 
     public function destroy($id)
@@ -185,60 +185,60 @@ class WebsiteController extends Controller
     public function pendidikan()
     {
         $data = Website::where('kategori', 'Bidang Pendidikan')->paginate(10);
-        return view('admin.index-website', compact('data'));
+        return view('website.index-website', compact('data'));
     }
 
     public function infrastruktur()
     {
         $data = Website::where('kategori', 'Bidang Infrastruktur')->paginate(10);
-        return view('admin.index-infrastruktur', compact('data'));
+        return view('website.index-infrastruktur', compact('data'));
     }
 
     public function pemerintahan()
     {
         $data = Website::where('kategori', 'Bidang Pemerintahan')->paginate(10);
-        return view('admin.index-pemerintahan', compact('data'));
+        return view('website.index-pemerintahan', compact('data'));
     }
 
     public function layananPublik()
     {
         $data = Website::where('kategori', 'Bidang Layanan Publik')->paginate(10);
-        return view('admin.index-layananpublik', compact('data'));
+        return view('website.index-layananpublik', compact('data'));
     }
 
     public function integrasiSistem()
     {
         $data = Website::where('kategori', 'Bidang Integrasi Sistem')->paginate(10);
-        return view('admin.index-integrasiSistem', compact('data'));
+        return view('website.index-integrasiSistem', compact('data'));
     }
 
     public function webOPD()
     {
         $data = Website::where('kategori', 'Web OPD')->paginate(10);
-        return view('admin.index-webOPD', compact('data'));
+        return view('website.index-webOPD', compact('data'));
     }
 
     public function webKecamatan()
     {
         $data = Website::where('kategori', 'Web Kecamatan')->paginate(10);
-        return view('admin.index-webKecamatan', compact('data'));
+        return view('website.index-webKecamatan', compact('data'));
     }
 
     public function webKelurahan()
     {
         $data = Website::where('kategori', 'Web Kelurahan')->paginate(10);
-        return view('admin.index-webKelurahan', compact('data'));
+        return view('website.index-webKelurahan', compact('data'));
     }
 
     public function sd()
     {
         $data = Website::where('kategori', 'Web SD')->paginate(10);
-        return view('admin.index-websd', compact('data'));
+        return view('website.index-websd', compact('data'));
     }
 
     public function smp()
     {
         $data = Website::where('kategori', 'Web SMP')->paginate(10);
-        return view('admin.index-websmp', compact('data'));
+        return view('website.index-websmp', compact('data'));
     }
 }

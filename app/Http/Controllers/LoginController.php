@@ -95,7 +95,7 @@ class LoginController extends Controller
 
         // Pass the dummy data to the view
         return view(
-            'admin.index',
+            'website.index',
             compact(
                 'data',
                 'titleKdWhm',

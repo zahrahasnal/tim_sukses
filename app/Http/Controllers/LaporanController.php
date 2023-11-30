@@ -39,7 +39,7 @@ class LaporanController extends Controller
         $tahunOptions = array_filter($tahunOptions);
 
         // Pass data to the view
-        return view('admin.laporan', compact('data', 'bulanOptions', 'tahunOptions'));
+        return view('website.laporan', compact('data', 'bulanOptions', 'tahunOptions'));
     }
 
     public function viewFile($filename)
@@ -52,7 +52,7 @@ class LaporanController extends Controller
             abort(404);
         }
 
-        return view('admin.view-file', compact('filename'));
+        return view('website.view-file', compact('filename'));
     }
 
 
@@ -94,6 +94,6 @@ class LaporanController extends Controller
         $tahunOptions = array_filter($tahunOptions);
 
         // Pass filtered data to the view
-        return view('admin.laporan', compact('data', 'bulanOptions', 'tahunOptions'));
+        return view('website.laporan', compact('data', 'bulanOptions', 'tahunOptions'));
     }
 }

@@ -15,7 +15,7 @@
 </script>
 <!-- script modal confirmation -->
 <script>
-    function confirmDelete(userId) {
+    function confirmDeleteUser(userId) {
         if (confirm('Apakah Anda yakin ingin menghapus pengguna ini?')) {
             // Jika pengguna menekan "OK", arahkan ke rute penghapusan
             window.location.href = "{{ route('delete-users', '') }}/" + userId;
@@ -25,7 +25,7 @@
 
 <script>
     function confirmDelete(websiteId) {
-        if (confirm('Are you sure you want to delete this website?')) {
+        if (confirm('Apakah Anda yakin ingin menghapus data website ini??')) {
             // If the user clicks "OK", redirect to the delete route for websites
             window.location.href = "{{ route('delete-website', '') }}/" + websiteId;
         }

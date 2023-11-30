@@ -12,6 +12,6 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user(); // Mengambil data pengguna yang sedang login
-        return view('admin.profile-users', compact('user'));
+        return view('user.profile-users', compact('user'));
     }
 }

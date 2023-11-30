@@ -11,8 +11,10 @@ class DownloadController extends Controller
 {
     public function downloadAll()
     {
+        $showCurrentDate = true;
+
         $data = Website::all();
-        $pdf = PDF::loadView('admin.pdf', compact('data'))->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('website.pdf', compact('data', 'showCurrentDate'))->setPaper('a3', 'landscape');
         $pdf->setOptions(['isPhpEnabled' => true]);
 
         $currentMonthYear = now()->format('F Y');
@@ -27,8 +29,10 @@ class DownloadController extends Controller
 
     public function downloadCategoryPDF($category)
     {
+        $showCurrentDate = true;
+
         $data = Website::where('kategori', $category)->get();
-        $pdf = PDF::loadView('admin.pdf', compact('data'))->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('website.pdf', compact('data', 'showCurrentDate'))->setPaper('a3', 'landscape');
         $pdf->setOptions(['isPhpEnabled' => true]);
 
         $currentMonthYear = now()->format('F Y'); // Format bulan tahun saat ini
@@ -39,7 +43,7 @@ class DownloadController extends Controller
         $pdf->setOptions(['filename' => "laporan_monitoring_website_$category" . "_$currentMonthYear.pdf"]); // Nama file
 
         return $pdf->download("laporan_monitoring_website_$category" . "_$currentMonthYear.pdf");
-        return view('admin.pdf', compact('data', 'customTitle'));
+        return view('website.pdf', compact('data', 'customTitle'));
     }
 
     public function dwnldPendidikan()
