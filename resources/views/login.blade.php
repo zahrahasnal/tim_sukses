@@ -31,6 +31,17 @@
 <div class="container custom-container">
     <div class="card">
         <div class="card-body">
+            @if(session()->has('success') || session()->has('error'))
+            <div class="row">
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @elseif(session()->has('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+                </div>
+            </div>
+        @endif
             <h2 class="card-title text-center">Login</h2>
             <form action="{{ route('login') }}" method="POST">
                 @csrf
